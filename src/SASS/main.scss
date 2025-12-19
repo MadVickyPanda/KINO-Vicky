@@ -1,1 +1,10 @@
 @use './header';
+@use './mixins_variables';
+
+//basic reset + setting background color
+body,* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: mixins_variables.$background-color;
+}
