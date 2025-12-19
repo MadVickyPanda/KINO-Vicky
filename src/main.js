@@ -6,6 +6,7 @@ import {
   fetchKidsMovies,
   fetchClassics,
 } from "./API/moviesApi";
+import { createPoster } from "./Features/createPoster";
 
 // Ladda header
 async function loadHeader() {
@@ -50,4 +51,11 @@ async function startMovies() {
   // DisplayMovies();
 }
 
-startMovies();
+await startMovies();
+
+
+const topListContainer = document.querySelector(".poster-container-test");
+
+store.topList.forEach((movie) => {
+  createPoster(movie, topListContainer);
+});
