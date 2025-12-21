@@ -1,16 +1,11 @@
 body {
-  display: block; /* Eller se till att det inte är flex */
+  display: block;
   width: 100%;
 }
 
 .movies-wrapper {
   max-width: 1200px;
-  /* Ändra från margin: 2rem; till detta: */
-  margin: 2rem auto; 
-  
-  /* För att se bakgrundsfärgen du testade med: */
-  background-color: white; 
-  display: flow-root; /* Detta gör att wrappern "fattar" sin egen höjd */
+  margin: 2rem auto;
 }
 
 .movie__page__movies {
@@ -27,7 +22,7 @@ body {
   background-color: #0e131b;
   border-radius: 1.25rem;
   overflow: hidden;
-  max-width: 200px;
+  max-width: 220px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
