@@ -64,8 +64,8 @@
 }
 
 .top_events img {
-  flex: 1 1 280px;  // flex-grow:1, flex-shrink:1, flex-basis:280px
-  min-width: 330px; // tillåt krympning men inte för liten
+  flex: 1 1 280px;  
+  min-width: 330px; 
   max-width: 600px;
   height: auto;
 }
@@ -76,7 +76,7 @@
 .champagne_image {
   flex: 1;        
   min-width: 300px;             
-  max-width: 600px;        
+  max-width: 800px;        
   height: auto;            
   display: flex;
   padding: 1rem;
