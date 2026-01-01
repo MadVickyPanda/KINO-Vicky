@@ -101,3 +101,8 @@ console.log(store.allMovies);
 store.allMovies.forEach((movie) => {
   createPoster(movie, topListContainer);
 });
+
+
+document.getElementById('menuToggle').addEventListener('click', function() {
+  document.querySelector('.nav-menu').classList.toggle('active');
+});
