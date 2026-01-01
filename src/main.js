@@ -106,3 +106,20 @@ store.allMovies.forEach((movie) => {
 document.getElementById('menuToggle').addEventListener('click', function() {
   document.querySelector('.nav-menu').classList.toggle('active');
 });
+
+// Hämta länken "Mer ▾"
+const merLink = document.querySelector('.nav_item > .nav_link');
+const merItem = merLink.parentElement;
+
+// Klick på "Mer ▾" öppnar/stänger dropdown
+merLink.addEventListener('click', (e) => {
+  e.preventDefault(); // hindrar scroll
+  merItem.classList.toggle('active');
+});
+
+// Klick utanför stänger dropdown
+document.addEventListener('click', (e) => {
+  if (!merItem.contains(e.target)) {
+    merItem.classList.remove('active');
+  }
+});
