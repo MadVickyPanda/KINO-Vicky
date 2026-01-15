@@ -8,12 +8,21 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = 5080;
 
-// Serva allt i public som statiska filer
+// Serva statiska filer från public och Vite-build
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
-// Skicka index.html vid root
+// Routes för sidorna
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.get('/about', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'about.html'));
+});
+
+app.get('/movies', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'movies.html'));
 });
 
 // 404-fallback
