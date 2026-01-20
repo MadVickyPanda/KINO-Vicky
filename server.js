@@ -10,23 +10,23 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = 5080;
 
-// Mustache
+
 app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
 app.set('views', path.join(__dirname, 'views'));
 
-// Statiska filer
+
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Startsida
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// SSR-filmsida
+
 app.use('/movies', moviesRouter);
 
-// 404
+
 app.use((req, res) => {
   res.status(404).send('<h1>404 - Sidan finns inte</h1>');
 });
