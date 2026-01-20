@@ -1,0 +1,310 @@
+body{
+  background-color: #0E131B;
+  color: #F5F7FA;
+}
+
+a:link{
+  color: #F5F7FA;
+}
+
+a:visited{
+  color: #dd6031;
+}
+.header_inner {
+  display: none;
+}
+.movie img {
+  max-width: 100%;    
+  max-height: 500px;  
+  width: auto;        
+  height: auto;
+  display: block;     
+  margin: 1rem 0;     
+  border-radius: 8px; 
+  margin-left: 5rem;
+}
+.intro, h1, .back{
+  width: 30rem;
+  margin-left: 5rem;
+}
+.mobile-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: #0E131B;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 3000;
+  padding-bottom: 3rem;
+}
+
+.mobile-nav_item {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  color: #626C7B;
+  transition: color 0.3s;
+}
+.mobile-nav_item .icon {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.3s, stroke 0.3s, color 0.3s;
+  pointer-events: none;
+}
+.mobile-nav_item:hover {
+  color: #F5F7FA;
+}
+.mobile-nav_item:hover .icon {
+  transform: scale(1.2);
+}
+.mobile-nav_item.active {
+  color: #F5F7FA;
+}
+.mobile-nav_item.active .icon {
+  stroke: #F5F7FA;
+  transform: scale(1.2);
+}
+
+.menu-icon {
+  display: block;
+  cursor: pointer;
+  background-color: #0E131B;
+}
+.menu-icon span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px 0;
+  background-color: #626C7B;
+  transition: 0.4s;
+  border-radius: 5px;
+}
+.menu-icon.active {
+  display: block;
+}
+
+.menu-icon:hover span {
+  background-color: #F5F7FA;
+}
+
+.menu-icon.active span {
+  background-color: #F5F7FA;
+}
+
+.nav-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: #080B10;
+  z-index: 2000;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem 1rem calc(100px + env(safe-area-inset-bottom));
+}
+.nav-menu .nav-menu-top {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: auto;
+}
+.nav-menu .nav-menu-top a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #F5F7FA;
+  text-decoration: none;
+}
+.nav-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  margin-top: auto;
+}
+.nav-menu li {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  border-radius: 12px;
+  transition: background-color 0.25s ease, transform 0.15s ease;
+}
+.nav-menu li:hover, .nav-menu li:focus-within {
+  background-color: #0E131B;
+}
+.nav-menu li:active {
+  transform: scale(0.98);
+}
+.nav-menu li a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #F5F7FA;
+  font-family: "semi-bold Open sans", sans-serif;
+  font-size: 14px;
+  flex-grow: 1;
+  text-align: left;
+  transition: color 0.3s;
+}
+.nav-menu li a .icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 2;
+  transition: transform 0.3s, color 0.3;
+}
+.nav-menu li::after {
+  content: ">";
+  font-size: 14px;
+  color: #F5F7FA;
+  margin-left: 0.5rem;
+}
+.nav-menu .nav-menu-top::after {
+  content: none;
+}
+
+.nav-menu li:nth-child(7) {
+  margin-top: 2rem;
+}
+
+.nav-menu.active {
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-top: calc(50px + 2rem);
+    font-family: "regular Open sans", sans-serif;
+  }
+  .mobile-nav {
+    display: none;
+  }
+  .nav-menu {
+    display: none !important;
+  }
+  .header {
+    width: 100%;
+    background: #080B10;
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+  .header_inner {
+    margin-right: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+  }
+  .header .logo img {
+    height: 50px;
+  }
+  .header .nav_desktop {
+    display: flex;
+    align-items: center;
+  }
+  .header .nav_desktop .nav_list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+  }
+  .header .nav_desktop .nav_list .nav_link {
+    text-decoration: none;
+    color: #626C7B;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    background: none;
+  }
+  .header .nav_desktop .nav_list .nav_item_dropdown {
+    position: relative;
+  }
+  .header .nav_desktop .nav_list .nav_item_dropdown .nav_link {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  .header .nav_desktop .nav_list .nav_item_dropdown .nav_link::after {
+    content: "▾";
+    font-size: 1rem;
+    display: inline-block;
+    transition: transform 0.3s;
+  }
+  .header .nav_desktop .nav_list .nav_item_dropdown.active .nav_link::after {
+    transform: rotate(180deg);
+  }
+  .header .nav_desktop .nav_list .nav_item_dropdown .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transform: translateX(-50%);
+    background: #080B10;
+    list-style: none;
+    padding: 0.5rem 0;
+    margin-left: 4rem;
+    min-width: 150px;
+    border-radius: 4px;
+    z-index: 1200;
+  }
+  .header .nav_desktop .nav_list .nav_item_dropdown .dropdown li {
+    width: 100%;
+    text-align: left;
+    padding: 0.5rem 1rem;
+  }
+  .header .nav_desktop .nav_list .nav_item_dropdown .dropdown li a {
+    color: #626C7B;
+    text-decoration: none;
+  }
+  .header .nav_desktop .nav_list .nav_item_dropdown.active .dropdown {
+    display: block;
+  }
+  .header .nav_desktop .nav_list .nav_item_dropdown > .nav_link {
+    transition: color 0.3s;
+  }
+  .header .nav_desktop .nav_list .nav_item_dropdown > .nav_link:hover {
+    color: #F5F7FA;
+  }
+  .header .nav_desktop .nav_list .nav_item_dropdown.active > .nav_link {
+    color: #F5F7FA;
+  }
+  .header .header_actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .header .header_actions .login {
+    color: #626C7B;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .header .header_actions .lang {
+    background: none;
+    border: none;
+    color: #626C7B;
+    cursor: pointer;
+    font-weight: 500;
+  }
+}

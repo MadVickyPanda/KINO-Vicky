@@ -1,3 +1,26 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>Filmer</title>
+  <link rel="stylesheet" href="/css/movies.css">
+</head>
+<body>
+
+<!-- Header / Meny -->
+<header class="header">
+  <div class="header_inner">
+    <a href="/" class="logo"><img src="/img/Exclude.png" alt="Kino"></a>
+    <nav class="nav_desktop">
+      <ul class="nav_list">
+        <li class="nav_item"><a href="/" class="nav_link">Startsida</a></li>
+        <li class="nav_item"><a href="/movies" class="nav_link">Filmer</a></li>
+        <li class="nav_item"><a href="/about.html" class="nav_link">Om biografen</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 <h1>Filmer</h1>
 <ul>
   {{#movies}}
@@ -7,3 +30,6 @@
     <li>Inga filmer hittades.</li>
   {{/movies}}
 </ul>
+
+</body>
+</html>

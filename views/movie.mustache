@@ -1,12 +1,36 @@
-<a href="/movies">Back to all movies</a>
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/css/movies.css">
+</head>
+<body>
+
+<!-- Header / Meny -->
+<header class="header">
+  <div class="header_inner">
+    <a href="/" class="logo"><img src="/img/Exclude.png" alt="Kino"></a>
+    <nav class="nav_desktop">
+      <ul class="nav_list">
+        <li class="nav_item"><a href="/" class="nav_link">Startsida</a></li>
+        <li class="nav_item"><a href="/movies" class="nav_link">Filmer</a></li>
+        <li class="nav_item"><a href="/about" class="nav_link">Om biografen</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<a href="/movies" class="back">← Tillbaka till alla filmer</a>
 
 <article class="movie">
   <h1>{{title}}</h1>
-  <div class="intro">
-    {{{intro}}}
-  </div>
+  <div class="intro">{{{intro}}}</div>
+
   {{#image}}
     <img src="{{image.url}}" alt="{{title}}">
   {{/image}}
-  <p><strong>År:</strong> {{year}}</p>
 </article>
+
+</body>
+</html>
