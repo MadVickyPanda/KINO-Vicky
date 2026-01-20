@@ -1,5 +1,6 @@
 import express from 'express';
 import { loadMovies, loadMovie } from '../api.js';
+import { marked } from 'marked';
 
 const router = express.Router();
 
@@ -17,8 +18,14 @@ router.get('/', async (req, res) => {
 // Detaljsida för en film
 router.get('/:id', async (req, res) => {
   try {
-    const movie = await loadMovie(req.params.id);
-    res.render('movie', movie);
+    let movie = await loadMovie(req.params.id);
+
+    // Konvertera intro från markdown till HTML
+    if (movie.intro) {
+      movie.introHTML = marked.parse(movie.intro);
+    }
+
+    res.render('movie', { movie });
   } catch (err) {
     console.error(err);
     res.status(500).send('<h1>Fel vid hämtning av filmen</h1>');

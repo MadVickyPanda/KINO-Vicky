@@ -13,6 +13,16 @@ a:visited{
 .header_inner {
   display: none;
 }
+.movie .intro ul {
+  padding-left: 1.5rem;
+  list-style: disc;
+}
+
+.movie .intro a {
+  color: #FF8C42;
+  text-decoration: underline;
+}
+
 .movie img {
   max-width: 100%;    
   max-height: 500px;  
