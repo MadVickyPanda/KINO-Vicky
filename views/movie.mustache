@@ -1,0 +1,12 @@
+<a href="/movies">Back to all movies</a>
+
+<article class="movie">
+  <h1>{{title}}</h1>
+  <div class="intro">
+    {{{intro}}}
+  </div>
+  {{#image}}
+    <img src="{{image.url}}" alt="{{title}}">
+  {{/image}}
+  <p><strong>År:</strong> {{year}}</p>
+</article>

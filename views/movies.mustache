@@ -1,0 +1,9 @@
+<h1>Filmer</h1>
+<ul>
+  {{#movies}}
+    <li><a href="/movies/{{id}}">{{title}}</a></li>
+  {{/movies}}
+  {{^movies}}
+    <li>Inga filmer hittades.</li>
+  {{/movies}}
+</ul>

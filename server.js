@@ -1,6 +1,8 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import mustacheExpress from 'mustache-express';
+import moviesRouter from './routes/movies.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -8,28 +10,25 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = 5080;
 
-// Serva statiska filer från public och Vite-build
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'dist')));
+// Mustache
+app.engine('mustache', mustacheExpress());
+app.set('view engine', 'mustache');
+app.set('views', path.join(__dirname, 'views'));
 
-// Routes för sidorna
+// Statiska filer
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Startsida
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.get('/about', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'about.html'));
-});
+// SSR-filmsida
+app.use('/movies', moviesRouter);
 
-app.get('/movies', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'movies.html'));
-});
-
-// 404-fallback
+// 404
 app.use((req, res) => {
   res.status(404).send('<h1>404 - Sidan finns inte</h1>');
 });
 
-app.listen(PORT, () => {
-  console.log(`Server körs på http://localhost:${PORT}`);
-});
+app.listen(PORT, () => console.log(`Server kör på http://localhost:${PORT}`));
