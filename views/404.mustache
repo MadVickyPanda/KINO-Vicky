@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>404 – Filmen kunde inte hittas</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #fafafa;
+    }
+    h1 {
+      color: #c00;
+    }
+    a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>404 – Filmen kunde inte hittas</h1>
+
+  {{#message}}
+    <p>{{message}}</p>
+  {{/message}}
+
+  <p>
+    <a href="/movies">Tillbaka till alla filmer</a>
+  </p>
+</body>
+</html>

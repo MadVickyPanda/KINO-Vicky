@@ -1,4 +1,4 @@
-import express from 'express';
+import express from 'express'; 
 import { loadMovies, loadMovie } from '../api.js';
 import { marked } from 'marked';
 
@@ -18,16 +18,32 @@ router.get('/', async (req, res) => {
 // Detaljsida för en film
 router.get('/:id', async (req, res) => {
   try {
-    let movie = await loadMovie(req.params.id);
+    const movie = await loadMovie(req.params.id);
 
-    // Konvertera intro från markdown till HTML
+    // 404
+    if (!movie) {
+      return res.status(404).render('404.mustache', {
+        message: 'Filmen kunde inte hittas'
+      });
+    }
+
     if (movie.intro) {
       movie.introHTML = marked.parse(movie.intro);
     }
 
-    res.render('movie', { movie });
+    res.render('movie.mustache', { movie });
+
   } catch (err) {
     console.error(err);
+
+    // Om API returnerar 404, kör samma felsida
+    if (err.response?.status === 404) {
+      return res.status(404).render('404.mustache', {
+        message: 'Filmen kunde inte hittas'
+      });
+    }
+
+    // Annars är det ett serverfel
     res.status(500).send('<h1>Fel vid hämtning av filmen</h1>');
   }
 });
